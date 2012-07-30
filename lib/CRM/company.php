@@ -77,9 +77,8 @@ class company extends \LedgerSMB\DBObject {
         if (null == $data['entity_id']){
             return null;
         }
-        $company = new self; 
+        $company = new self(); 
         $company->merge($data);
-        $company->dbhandle = $this->{dbhandle};
         return $company;
     }
     /* function save()
@@ -95,7 +94,7 @@ class company extends \LedgerSMB\DBObject {
         if ('1.3' == \LedgerSMB\Config\DBVERSION){
            $procname = 'company_save';
         }
-        $data = array_pop($this->exec_mapped_method($procname));
+        $data = array_pop($this->$procname());
         print_r($data);
         #$this->merge($data);
     }

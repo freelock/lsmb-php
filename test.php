@@ -1,13 +1,15 @@
 <?php
 
-include "dbobject.cls.php";
-include "dbobject/crm.cls.php";
+include "lib/DB.php";
+include "lib/DBObject.php";
+include "lib/CRM/company.php";
 include "config.php";
 
-$company = new LedgerSMB\CRM\Company;
+$company = new LedgerSMB\CRM\Company();
+$db = LedgerSMB\DB::getObject();
 
 #phpinfo();
-$company->dbconnect($dbname = 'mtech_test');
+$db->dbconnect($dbname = 'mtech_test');
 $company->begin();
 
 $company2 = $company->get(1);
