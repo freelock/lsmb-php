@@ -55,10 +55,10 @@ class DB
      * @return DB object
      */
     static function getObject() {
-        if (!isset($this->dbobject)) {
-            $this->dbobject = new DB();
+        if (!isset(self::$dbobject)) {
+            self::$dbobject = new DB();
         }
-        return $this->dbobject;
+        return self::$dbobject;
     }
     
     
